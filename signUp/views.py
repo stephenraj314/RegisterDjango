@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import SignupForm
+from .models import users
 
 # Create your views here.
 
@@ -14,10 +15,14 @@ def signupview(request):
         form = SignupForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            return HttpResponse("<h1>success</h1>")
+            data = form.cleaned_data
+            #users.objects.create(**data)
+            print(data)
+        #return HttpResponse("<h1>success</h1>")
     else:
         form = SignupForm()
 
     return render(request, 'form.html', {'form': form})
+
 def success(request):
     return render(request, 'thanks.html')
