@@ -6,10 +6,10 @@
 </head>
 <body>
 <form method="POST">
-  <table>
         {% csrf_token %}
-        {{ form.as_table }}
-  </table>
+        <table>
+        {{ form.as_p }}
+       </table>
         <button type="submit" class="save btn btn-default" >Submit</button>
     </form>
     {{html}}

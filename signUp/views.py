@@ -16,7 +16,8 @@ def signupview(request):
         # check whether it's valid:
         if form.is_valid():
             data = form.cleaned_data
-            #users.objects.create(**data)
+            data.pop('Repassword')
+            users.objects.create(**data)
             print(data)
         #return HttpResponse("<h1>success</h1>")
     else:
