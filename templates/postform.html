@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signin</title>
+    <title>Post Form</title>
 </head>
 <body>
 <form method="POST">
         {% csrf_token %}
         <table>
-        {{ form.as_p }}
+        {{ form.as_table }}
        </table>
         <button type="submit" class="save btn btn-default" >Submit</button>
     </form>

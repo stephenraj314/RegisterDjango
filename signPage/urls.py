@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('signupform/',include('signUp.urls')),
     path('signinform/',include('signIn.urls')),
+    path('post/',include('post.urls')),
     path('thanks/',TemplateView.as_view(template_name = 'thanks.html'))
 
 ]
