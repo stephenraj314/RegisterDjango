@@ -3,5 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('postform/',views.postview),
+    path('postform/',views.postformview),
+    path('postlist/',views.postlistview),
 ]

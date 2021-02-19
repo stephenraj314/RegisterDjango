@@ -13,3 +13,6 @@ class PostForm(forms.Form):
 
             raise ValidationError("Username Doesn't Exists")
         return users.objects.filter(user_name=data).first()
+
+class PostView(forms.Form):
+    user_name = forms.CharField(label= 'User Name',max_length=100)
