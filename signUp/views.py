@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import SignupForm
 from .models import users
+import bcrypt
 
 # Create your views here.
 
@@ -17,6 +18,9 @@ def signupview(request):
         if form.is_valid():
             data = form.cleaned_data
             data.pop('Repassword')
+            salt = bcrypt.gensalt()
+            hashed = bcrypt.hashpw(data['password'].encode("utf-8"), salt)
+            data['password']= hashed.decode("utf-8")
             users.objects.create(**data)
             print(data)
         #return HttpResponse("<h1>success</h1>")

@@ -3,6 +3,7 @@ from django.core import validators
 from django.core.exceptions import ValidationError
 from .models import users
 import re
+import bcrypt
 
 
 
@@ -29,7 +30,7 @@ class SignupForm(forms.Form):
         data = self.cleaned_data['password']
         pat="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
         if bool(re.match(pat,data))==False:
-            raise ValidationError("Match The Passwoed Criteria")
+            raise ValidationError("Match The Password Criteria")
         return data
 
     def clean_user_name(self):
